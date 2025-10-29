@@ -22,19 +22,24 @@ export default function SearchBar() {
   const onSubmit = (e) => {
     e.preventDefault();
     setQuery(local);
+    // Move focus to results heading if present for better SR workflow
+    const heading = document.getElementById('recipe-list-heading');
+    if (heading) heading.focus();
   };
 
   return (
     <form role="search" onSubmit={onSubmit} aria-label="Recipe search">
-      <label style={{ position: 'relative', display: 'inline-block' }}>
+      <label htmlFor="recipe-search" style={{ position: 'relative', display: 'inline-block' }}>
         <span className="visually-hidden">Search recipes</span>
         <input
+          id="recipe-search"
           ref={inputRef}
           value={local}
           onChange={(e) => setLocal(e.target.value)}
           type="search"
           placeholder="Search recipes"
           aria-label="Search recipes"
+          aria-controls="recipe-list"
           className="input"
           style={{
             paddingRight: '2rem',

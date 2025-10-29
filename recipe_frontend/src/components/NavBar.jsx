@@ -18,16 +18,18 @@ export default function NavBar() {
         zIndex: 10
       }}
     >
+      <a href="#main" className="skip-link">Skip to content</a>
       <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <Link to="/" style={{ textDecoration: 'none', color: 'inherit', fontWeight: 800, letterSpacing: 0.2 }}>
-          <span aria-hidden="true" style={{ marginRight: 6 }}>🍳</span>
+        <Link to="/" style={{ textDecoration: 'none', color: 'inherit', fontWeight: 800, letterSpacing: 0.2 }} title="Go to home">
+          <span aria-hidden="true" style={{ marginRight: 6 }} role="img">🍳</span>
           <span>Recipe Explorer</span>
         </Link>
 
-        <div style={{ display: 'flex', gap: '0.5rem', marginLeft: 'auto', alignItems: 'center' }}>
+        <div role="menubar" aria-label="Primary" style={{ display: 'flex', gap: '0.5rem', marginLeft: 'auto', alignItems: 'center' }}>
           <NavLink
             to="/"
             end
+            role="menuitem"
             style={({ isActive }) => ({
               textDecoration: 'none',
               padding: '6px 10px',
@@ -41,6 +43,7 @@ export default function NavBar() {
           </NavLink>
           <NavLink
             to="/saved"
+            role="menuitem"
             style={({ isActive }) => ({
               textDecoration: 'none',
               padding: '6px 10px',
@@ -54,6 +57,7 @@ export default function NavBar() {
           </NavLink>
           <NavLink
             to="/submit"
+            role="menuitem"
             style={({ isActive }) => ({
               textDecoration: 'none',
               padding: '6px 10px',

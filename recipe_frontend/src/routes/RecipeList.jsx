@@ -30,7 +30,7 @@ export default function RecipeList() {
         }}
       >
         <div>
-          <h1 id="recipe-list-heading" style={{ margin: 0 }}>Discover Recipes</h1>
+          <h1 id="recipe-list-heading" tabIndex={-1} style={{ margin: 0 }}>Discover Recipes</h1>
           <p className="text-muted" style={{ margin: 0, fontSize: 12 }}>
             {category && category !== 'All' ? `Category: ${category}` : 'All categories'}
             {query ? ` • Search: “${query}”` : ''}
@@ -46,7 +46,9 @@ export default function RecipeList() {
       )}
 
       <div
+        id="recipe-list"
         className="grid"
+        aria-busy={loading}
         style={{
           marginTop: '1rem',
           gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))'

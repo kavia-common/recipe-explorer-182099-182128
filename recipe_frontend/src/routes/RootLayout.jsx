@@ -13,12 +13,13 @@ export default function RootLayout() {
       <main
         id="main"
         role="main"
+        tabIndex={-1}
         className="container"
         style={{ flex: 1, padding: '1rem 0', width: '100%' }}
       >
         <Outlet />
       </main>
-      <footer style={{ padding: '1rem', fontSize: 12, color: 'var(--text-secondary)', textAlign: 'center' }}>
+      <footer role="contentinfo" style={{ padding: '1rem', fontSize: 12, color: 'var(--text-secondary)', textAlign: 'center' }}>
         Recipe Explorer • Preview
       </footer>
     </div>

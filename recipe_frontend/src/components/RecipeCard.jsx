@@ -14,14 +14,15 @@ export default function RecipeCard({ id, title, description }) {
       <button
         className="btn ghost"
         aria-label={saved ? 'Unsave recipe' : 'Save recipe'}
-        title={saved ? 'Unsave' : 'Save'}
+        aria-pressed={saved}
+        title={saved ? 'Unsave recipe' : 'Save recipe'}
         onClick={() => toggle(id)}
         style={{ position: 'absolute', right: 10, top: 10, padding: '4px 8px', fontSize: 12 }}
       >
         {saved ? '★ Saved' : '☆ Save'}
       </button>
       <h3 style={{ marginTop: 0, marginBottom: '0.5rem' }}>
-        <Link to={`/recipe/${id}`} className="link">
+        <Link to={`/recipe/${id}`} className="link" aria-label={`View recipe: ${title}`}>
           {title}
         </Link>
       </h3>

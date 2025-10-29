@@ -1,13 +1,13 @@
 :root {
   /* Ocean Professional - Light */
   --color-primary: #EC4899; /* Pink */
-  --color-secondary: #8B5CF6; /* Purple */
+  --color-secondary: #6D28D9; /* Darker Purple for AA contrast on light bg */
   --color-success: #10B981; /* Emerald */
   --color-error: #EF4444; /* Red */
   --color-bg: #FDF2F8; /* Rose-50 */
   --color-surface: #FFFFFF;
-  --color-text: #374151; /* Gray-700 */
-  --color-muted: #6B7280; /* Gray-500 */
+  --color-text: #111827; /* Gray-900 for stronger light contrast */
+  --color-muted: #4B5563; /* Gray-600 for better readability */
 
   --border-color: #E5E7EB; /* Gray-200 */
 
@@ -23,7 +23,7 @@
   --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.08);
 
   /* Focus styles */
-  --focus-ring: 2px solid rgba(139, 92, 246, 0.6);
+  --focus-ring: 2px solid #4338CA; /* deep indigo for visibility */
   --focus-outline-offset: 2px;
 
   /* Spacing scale */
@@ -45,7 +45,7 @@
   --color-bg: #0B1020; /* deep ocean */
   --color-surface: #111827; /* slate-ish */
   --color-text: #F9FAFB; /* near white */
-  --color-muted: #9CA3AF;
+  --color-muted: #D1D5DB; /* lighter for readability on dark */
   --border-color: #374151;
 
   --gradient-primary: linear-gradient(90deg, #3F3F46, #312E81, #1E3A8A);
@@ -103,7 +103,7 @@ textarea:focus-visible,
   box-shadow: var(--shadow-xs);
 }
 .btn.secondary {
-  background: linear-gradient(180deg, var(--color-secondary), #6d28d9);
+  background: linear-gradient(180deg, var(--color-secondary), #4C1D95);
 }
 .btn.success {
   background: linear-gradient(180deg, var(--color-success), #059669);
@@ -142,7 +142,7 @@ input:focus,
 textarea:focus,
 select:focus {
   border-color: var(--ring-color);
-  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
+  box-shadow: 0 0 0 4px rgba(67, 56, 202, 0.18);
 }
 
 /* Playful gradient bar utility */

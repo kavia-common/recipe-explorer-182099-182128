@@ -17,8 +17,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Base link inherits color but hover has playful underline */
-a { color: inherit; text-decoration-color: var(--color-secondary); }
+/* Base link inherits color but hover has playful underline with sufficient contrast */
+a { 
+  color: inherit; 
+  text-decoration-color: var(--color-secondary);
+  text-underline-offset: 2px;
+}
 a:hover { text-decoration: underline; }
 
 /* Code font */
@@ -34,6 +38,26 @@ code {
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
+}
+
+/* Skip to content (becomes visible on focus) */
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  padding: 8px 12px;
+  background: var(--color-secondary);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-150%);
+  transition: transform 0.15s ease;
+  z-index: 1000;
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-outline-offset);
 }
 
 /* Utility: responsive paddings and container */
@@ -59,4 +83,14 @@ code {
   background: var(--gradient-primary);
   height: 10px;
   border-radius: 999px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

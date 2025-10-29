@@ -38,7 +38,7 @@ export default function RecipeDetail() {
   if (loading) {
     return (
       <article className="page" style={{ maxWidth: 800, margin: '0 auto' }}>
-        <p className="text-muted">Loading recipe…</p>
+        <p className="text-muted" role="status" aria-live="polite">Loading recipe…</p>
       </article>
     );
   }
@@ -73,23 +73,24 @@ export default function RecipeDetail() {
         <button
           className={`btn ${saved ? 'secondary' : ''}`}
           aria-label={saved ? 'Unsave recipe' : 'Save recipe'}
+          aria-pressed={saved}
           onClick={() => toggle(String(id))}
-          title={saved ? 'Unsave' : 'Save'}
+          title={saved ? 'Unsave recipe' : 'Save recipe'}
         >
           {saved ? '★ Saved' : '☆ Save'}
         </button>
       </header>
 
       {tags?.length ? (
-        <div style={{ marginTop: '0.5rem', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+        <div style={{ marginTop: '0.5rem', display: 'flex', gap: 8, flexWrap: 'wrap' }} aria-label="Tags">
           {tags.map((t) => (
             <span key={t} className="card" style={{ padding: '2px 8px', fontSize: 12, borderRadius: 999 }}>{t}</span>
           ))}
         </div>
       ) : null}
 
-      <section aria-label="Ingredients" style={{ marginTop: '1rem' }}>
-        <h2>Ingredients</h2>
+      <section aria-labelledby="ingredients-heading" style={{ marginTop: '1rem' }}>
+        <h2 id="ingredients-heading">Ingredients</h2>
         {ingredients.length ? (
           <ul>
             {ingredients.map((it, idx) => <li key={idx}>{it}</li>)}
@@ -99,8 +100,8 @@ export default function RecipeDetail() {
         )}
       </section>
 
-      <section aria-label="Instructions" style={{ marginTop: '1rem' }}>
-        <h2>Instructions</h2>
+      <section aria-labelledby="instructions-heading" style={{ marginTop: '1rem' }}>
+        <h2 id="instructions-heading">Instructions</h2>
         {instructions.length ? (
           <ol>
             {instructions.map((step, idx) => <li key={idx}>{step}</li>)}

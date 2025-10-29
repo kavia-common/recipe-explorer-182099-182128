@@ -28,6 +28,8 @@ function App() {
         className="theme-toggle"
         onClick={toggleTheme}
         aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+        aria-pressed={theme === 'dark'}
+        title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
       >
         {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
       </button>

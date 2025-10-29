@@ -26,9 +26,10 @@ export default function CategoryFilter({ categories: categoriesProp = [] }) {
   };
 
   return (
-    <label>
+    <label htmlFor="category-filter">
       <span className="visually-hidden">Filter by category</span>
       <select
+        id="category-filter"
         aria-label="Filter by category"
         value={local}
         onChange={onChange}
