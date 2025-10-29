@@ -4,7 +4,7 @@ import { getRecipeById } from '../services/recipesApi';
 import RecipeCard from '../components/RecipeCard';
 
 /**
- * SavedRecipes shows a user's saved items.
+ * SavedRecipes shows a user's saved items using localStorage-backed hook.
  */
 export default function SavedRecipes() {
   const { savedIds } = useSavedRecipes();
@@ -30,7 +30,12 @@ export default function SavedRecipes() {
 
   return (
     <section aria-labelledby="saved-heading" className="page" style={{ maxWidth: 1000, margin: '0 auto' }}>
-      <h1 id="saved-heading">Saved Recipes</h1>
+      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12 }}>
+        <h1 id="saved-heading">Saved Recipes</h1>
+        <p className="text-muted" style={{ margin: 0, fontSize: 12 }}>
+          {savedIds.length ? `${savedIds.length} saved` : 'None saved yet'}
+        </p>
+      </header>
       {loading ? (
         <p className="text-muted">Loading your saved recipes…</p>
       ) : recipes.length === 0 ? (

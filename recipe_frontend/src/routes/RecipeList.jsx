@@ -2,12 +2,16 @@ import React from 'react';
 import RecipeCard from '../components/RecipeCard';
 import CategoryFilter from '../components/CategoryFilter';
 import { useRecipesState } from '../state/recipesContext';
+import useQueryParams from '../hooks/useQueryParams';
 
 /**
- * RecipeList shows a grid of recipes with a category filter.
+ * RecipeList shows a grid of recipes with a category filter and consumes context-driven search.
  */
 export default function RecipeList() {
-  const { results, loading, error } = useRecipesState();
+  const { results, loading, error, query, category } = useRecipesState();
+
+  // Sync query/category with URL and trigger list route navigation on filter changes
+  useQueryParams();
 
   return (
     <section aria-labelledby="recipe-list-heading" className="page">
@@ -25,7 +29,13 @@ export default function RecipeList() {
             'radial-gradient(600px 200px at 100% 0%, rgba(139, 92, 246, 0.06), transparent 50%), var(--card-bg)'
         }}
       >
-        <h1 id="recipe-list-heading" style={{ margin: 0 }}>Discover Recipes</h1>
+        <div>
+          <h1 id="recipe-list-heading" style={{ margin: 0 }}>Discover Recipes</h1>
+          <p className="text-muted" style={{ margin: 0, fontSize: 12 }}>
+            {category && category !== 'All' ? `Category: ${category}` : 'All categories'}
+            {query ? ` • Search: “${query}”` : ''}
+          </p>
+        </div>
         <CategoryFilter />
       </header>
 
@@ -51,7 +61,12 @@ export default function RecipeList() {
           ))
         ) : (
           results.map((r) => (
-            <RecipeCard key={r.id} id={r.id} title={r.title} description={(r.instructions && r.instructions[0]) || 'Delicious recipe'} />
+            <RecipeCard
+              key={r.id}
+              id={r.id}
+              title={r.title}
+              description={(r.instructions && r.instructions[0]) || 'Delicious recipe'}
+            />
           ))
         )}
       </div>
