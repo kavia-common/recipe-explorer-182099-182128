@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-const STORAGE_KEY = 'recipeExplorer.saved.v1';
+const STORAGE_KEY = 'recipeExplorer.saved.v1'; // namespaced key: <app>.<domain>.<version>
 
 function readSaved() {
   try {

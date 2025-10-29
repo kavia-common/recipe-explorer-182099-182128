@@ -1,6 +1,20 @@
 import rawRecipes from '../data/mockRecipes.json';
 
 /**
+ * NOTE ABOUT DATA LAYER
+ * This module intentionally mimics an async API client. It currently serves mock data from JSON,
+ * but the exported functions match shapes you'd expect from a REST client so we can swap later.
+ *
+ * TODO(backendswap):
+ * - Replace memoryRecipes with network calls using fetch or your HTTP client of choice.
+ * - Consider adding a BASE_URL from environment (e.g., REACT_APP_API_BASE_URL) rather than hardcoding.
+ * - Each function below includes the minimal fetch signature you'd likely need; uncomment and adapt.
+ */
+
+// Example: Read from env for future REST backend
+// const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+/**
  * Simple in-memory store to support session-only mutations (saveRecipe).
  * This keeps the mock compatible with a future backend by exposing async functions.
  */
@@ -73,6 +87,13 @@ export async function listRecipes({ query = '', category = 'All', tag = '' } = {
    * - category: exact match against categories (case-insensitive). 'All' returns all.
    * - tag: exact match against tags (case-insensitive).
    * Returns: Promise<Array<Recipe>>
+   *
+   * TODO(backendswap):
+   * - Replace the mock filtering with a real request, e.g.:
+   *   const params = new URLSearchParams({ q: query, cat: category, tag }).toString();
+   *   const res = await fetch(`${BASE_URL}/recipes?${params}`);
+   *   if (!res.ok) throw new Error('Failed to fetch recipes');
+   *   return res.json();
    */
   await delay();
   const filtered = applyFilters(memoryRecipes, { query, category, tag });
@@ -87,6 +108,13 @@ export async function getRecipeById(id) {
    * Parameters:
    * - id: string
    * Returns: Promise<Recipe | null>
+   *
+   * TODO(backendswap):
+   * - Replace with network call, e.g.:
+   *   const res = await fetch(`${BASE_URL}/recipes/${encodeURIComponent(id)}`);
+   *   if (res.status === 404) return null;
+   *   if (!res.ok) throw new Error('Failed to fetch recipe');
+   *   return res.json();
    */
   await delay();
   const found = memoryRecipes.find(r => r.id === id || String(r.id) === String(id));
@@ -98,6 +126,13 @@ export async function listCategories() {
   /**
    * Return the distinct set of categories from the dataset.
    * Returns: Promise<Array<string>>
+   *
+   * TODO(backendswap):
+   * - Replace with a dedicated endpoint or compute from list endpoint response:
+   *   const res = await fetch(`${BASE_URL}/categories`);
+   *   if (!res.ok) throw new Error('Failed to fetch categories');
+   *   const categories = await res.json();
+   *   return ['All', ...categories];
    */
   await delay();
   const set = new Set();
@@ -113,6 +148,19 @@ export async function saveRecipe(recipe) {
    * Parameters:
    * - recipe: object (partial is okay, but should include title at minimum)
    * Returns: Promise<Recipe> (the saved recipe with assigned id)
+   *
+   * TODO(backendswap):
+   * - Replace with POST call:
+   *   const res = await fetch(`${BASE_URL}/recipes`, {
+   *     method: 'POST',
+   *     headers: { 'Content-Type': 'application/json' },
+   *     body: JSON.stringify(recipe),
+   *   });
+   *   if (!res.ok) throw new Error('Failed to create recipe');
+   *   return res.json();
+   *
+   * - After saving, the UI currently prepends the returned recipe to context results.
+   *   With a real backend, you might instead re-fetch listRecipes to ensure consistency.
    */
   await delay();
 
