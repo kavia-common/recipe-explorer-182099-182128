@@ -12,14 +12,19 @@ export default function SearchBar() {
           type="search"
           placeholder="Search recipes"
           aria-label="Search recipes"
+          className="input"
           style={{
-            padding: '0.4rem 0.6rem',
-            borderRadius: 8,
-            border: `1px solid var(--border-color)`,
-            background: 'var(--bg-primary)',
-            color: 'var(--text-primary)'
+            paddingRight: '2rem',
+            minWidth: 200
           }}
         />
+        <span aria-hidden="true" style={{
+          position: 'absolute',
+          right: 8,
+          top: '50%',
+          transform: 'translateY(-50%)',
+          color: 'var(--text-secondary)'
+        }}>🔎</span>
       </label>
     </form>
   );

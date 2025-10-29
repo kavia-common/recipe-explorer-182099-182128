@@ -9,8 +9,9 @@ export default function RecipeDetail() {
   const { id } = useParams();
 
   return (
-    <article aria-labelledby="recipe-detail-title" style={{ maxWidth: 800, margin: '0 auto' }}>
-      <h1 id="recipe-detail-title">Recipe #{id}</h1>
+    <article aria-labelledby="recipe-detail-title" className="page" style={{ maxWidth: 800, margin: '0 auto' }}>
+      <h1 id="recipe-detail-title" style={{ marginBottom: '0.25rem' }}>Recipe #{id}</h1>
+      <div className="header-accent" aria-hidden="true" style={{ width: 160, marginBottom: '0.75rem' }} />
       <p>This is a placeholder for the recipe details view.</p>
       <section aria-label="Ingredients" style={{ marginTop: '1rem' }}>
         <h2>Ingredients</h2>

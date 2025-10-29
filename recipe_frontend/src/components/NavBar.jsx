@@ -12,24 +12,57 @@ export default function NavBar() {
       role="navigation"
       aria-label="Main navigation"
       style={{
-        background: 'var(--bg-secondary)',
-        borderBottom: `1px solid var(--border-color)`,
-        padding: '0.75rem 1rem'
+        padding: '0.75rem 1rem',
+        position: 'sticky',
+        top: 0,
+        zIndex: 10
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', maxWidth: 1200, margin: '0 auto' }}>
-        <Link to="/" style={{ textDecoration: 'none', color: 'inherit', fontWeight: 700 }}>
-          🍳 Recipe Explorer
+      <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <Link to="/" style={{ textDecoration: 'none', color: 'inherit', fontWeight: 800, letterSpacing: 0.2 }}>
+          <span aria-hidden="true" style={{ marginRight: 6 }}>🍳</span>
+          <span>Recipe Explorer</span>
         </Link>
 
-        <div style={{ display: 'flex', gap: '0.75rem', marginLeft: 'auto', alignItems: 'center' }}>
-          <NavLink to="/" end style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}>
+        <div style={{ display: 'flex', gap: '0.5rem', marginLeft: 'auto', alignItems: 'center' }}>
+          <NavLink
+            to="/"
+            end
+            style={({ isActive }) => ({
+              textDecoration: 'none',
+              padding: '6px 10px',
+              borderRadius: '10px',
+              background: isActive ? 'var(--gradient-primary)' : 'transparent',
+              boxShadow: isActive ? 'var(--shadow-xs)' : 'none',
+              color: 'inherit'
+            })}
+          >
             Home
           </NavLink>
-          <NavLink to="/saved" style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}>
+          <NavLink
+            to="/saved"
+            style={({ isActive }) => ({
+              textDecoration: 'none',
+              padding: '6px 10px',
+              borderRadius: '10px',
+              background: isActive ? 'var(--gradient-primary)' : 'transparent',
+              boxShadow: isActive ? 'var(--shadow-xs)' : 'none',
+              color: 'inherit'
+            })}
+          >
             Saved
           </NavLink>
-          <NavLink to="/submit" style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}>
+          <NavLink
+            to="/submit"
+            style={({ isActive }) => ({
+              textDecoration: 'none',
+              padding: '6px 10px',
+              borderRadius: '10px',
+              background: isActive ? 'var(--gradient-primary)' : 'transparent',
+              boxShadow: isActive ? 'var(--shadow-xs)' : 'none',
+              color: 'inherit'
+            })}
+          >
             Submit
           </NavLink>
           <SearchBar />
