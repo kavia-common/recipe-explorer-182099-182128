@@ -1,47 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import RootLayout from './routes/RootLayout';
+import RecipeList from './routes/RecipeList';
+import RecipeDetail from './routes/RecipeDetail';
+import SavedRecipes from './routes/SavedRecipes';
+import SubmitRecipe from './routes/SubmitRecipe';
 
 // PUBLIC_INTERFACE
 function App() {
+  /**
+   * App root sets a data-theme attribute for basic theming and
+   * defines the top-level routes for the Recipe Explorer app.
+   */
   const [theme, setTheme] = useState('light');
 
-  // Effect to apply theme to document element
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
   // PUBLIC_INTERFACE
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
+  const toggleTheme = () => setTheme((t) => (t === 'light' ? 'dark' : 'light'));
 
   return (
     <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button
+        className="theme-toggle"
+        onClick={toggleTheme}
+        aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      >
+        {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+      </button>
+
+      <Routes>
+        <Route element={<RootLayout />}>
+          <Route index element={<RecipeList />} />
+          <Route path="/" element={<RecipeList />} />
+          <Route path="/recipe/:id" element={<RecipeDetail />} />
+          <Route path="/saved" element={<SavedRecipes />} />
+          <Route path="/submit" element={<SubmitRecipe />} />
+          <Route path="*" element={<main style={{ padding: '2rem' }}><h1>404</h1><p>Page not found.</p></main>} />
+        </Route>
+      </Routes>
     </div>
   );
 }
