@@ -1,0 +1,160 @@
+[
+  {
+    "id": "r-001",
+    "title": "Classic Margherita Pizza",
+    "image": "/assets/pizza-margherita.jpg",
+    "categories": ["Dinner", "Italian", "Vegetarian"],
+    "ingredients": [
+      "Pizza dough",
+      "Tomato sauce",
+      "Fresh mozzarella",
+      "Fresh basil leaves",
+      "Olive oil",
+      "Salt"
+    ],
+    "instructions": [
+      "Preheat oven to 500°F (260°C) with a pizza stone inside if available.",
+      "Roll out the pizza dough on a floured surface.",
+      "Spread a thin layer of tomato sauce over the dough.",
+      "Tear fresh mozzarella into pieces and distribute evenly.",
+      "Bake for 8–12 minutes until crust is golden and cheese is bubbling.",
+      "Top with fresh basil leaves and drizzle with olive oil. Season with salt."
+    ],
+    "time": { "prep": 15, "cook": 12, "total": 27, "unit": "minutes" },
+    "servings": 2,
+    "tags": ["quick", "cheese", "basil", "comfort", "kid-friendly"]
+  },
+  {
+    "id": "r-002",
+    "title": "Hearty Lentil Soup",
+    "image": "/assets/lentil-soup.jpg",
+    "categories": ["Lunch", "Vegan", "Gluten-Free"],
+    "ingredients": [
+      "Brown lentils",
+      "Carrots",
+      "Celery",
+      "Onion",
+      "Garlic",
+      "Vegetable broth",
+      "Tomato paste",
+      "Bay leaf",
+      "Olive oil",
+      "Salt",
+      "Pepper"
+    ],
+    "instructions": [
+      "Sauté onion, carrots, and celery in olive oil until softened.",
+      "Add garlic and tomato paste; cook for 1 minute.",
+      "Add lentils, broth, and bay leaf; bring to a boil.",
+      "Simmer 25–30 minutes until lentils are tender.",
+      "Season with salt and pepper; remove bay leaf and serve."
+    ],
+    "time": { "prep": 10, "cook": 30, "total": 40, "unit": "minutes" },
+    "servings": 4,
+    "tags": ["healthy", "one-pot", "meal-prep", "high-protein"]
+  },
+  {
+    "id": "r-003",
+    "title": "Blueberry Pancakes",
+    "image": "/assets/blueberry-pancakes.jpg",
+    "categories": ["Breakfast", "Vegetarian"],
+    "ingredients": [
+      "All-purpose flour",
+      "Baking powder",
+      "Milk",
+      "Egg",
+      "Butter",
+      "Sugar",
+      "Salt",
+      "Fresh blueberries",
+      "Vanilla extract"
+    ],
+    "instructions": [
+      "Whisk dry ingredients in a bowl.",
+      "In another bowl, whisk milk, egg, melted butter, and vanilla.",
+      "Combine wet and dry; fold in blueberries.",
+      "Cook on a lightly buttered griddle over medium heat until bubbles form; flip and cook until golden.",
+      "Serve warm with maple syrup."
+    ],
+    "time": { "prep": 10, "cook": 15, "total": 25, "unit": "minutes" },
+    "servings": 3,
+    "tags": ["sweet", "brunch", "kid-friendly", "fruit"]
+  },
+  {
+    "id": "r-004",
+    "title": "Spicy Chickpea Salad Wrap",
+    "image": "/assets/chickpea-wrap.jpg",
+    "categories": ["Lunch", "Vegan"],
+    "ingredients": [
+      "Canned chickpeas",
+      "Lemon juice",
+      "Tahini",
+      "Garlic powder",
+      "Paprika",
+      "Cucumber",
+      "Tomato",
+      "Mixed greens",
+      "Whole wheat wraps",
+      "Salt",
+      "Pepper"
+    ],
+    "instructions": [
+      "Mash chickpeas with lemon juice, tahini, garlic powder, paprika, salt, and pepper.",
+      "Spread mixture on a whole wheat wrap.",
+      "Top with sliced cucumber, tomato, and mixed greens.",
+      "Roll tightly and slice in half."
+    ],
+    "time": { "prep": 12, "cook": 0, "total": 12, "unit": "minutes" },
+    "servings": 2,
+    "tags": ["no-cook", "fiber", "dairy-free", "quick"]
+  },
+  {
+    "id": "r-005",
+    "title": "Garlic Butter Shrimp Pasta",
+    "image": "/assets/shrimp-pasta.jpg",
+    "categories": ["Dinner", "Seafood"],
+    "ingredients": [
+      "Spaghetti",
+      "Shrimp (peeled and deveined)",
+      "Garlic",
+      "Butter",
+      "Olive oil",
+      "Red pepper flakes",
+      "Parsley",
+      "Lemon",
+      "Salt",
+      "Pepper"
+    ],
+    "instructions": [
+      "Cook spaghetti in salted water until al dente; reserve some pasta water.",
+      "Sauté garlic in butter and olive oil until fragrant.",
+      "Add shrimp and red pepper flakes; cook until just pink.",
+      "Toss shrimp with spaghetti, a splash of pasta water, lemon juice, and parsley.",
+      "Season with salt and pepper to taste."
+    ],
+    "time": { "prep": 10, "cook": 15, "total": 25, "unit": "minutes" },
+    "servings": 3,
+    "tags": ["weeknight", "lemon", "garlic", "comfort"]
+  },
+  {
+    "id": "r-006",
+    "title": "Chocolate Avocado Mousse",
+    "image": "/assets/choc-avocado-mousse.jpg",
+    "categories": ["Dessert", "Vegan", "Gluten-Free"],
+    "ingredients": [
+      "Ripe avocados",
+      "Cocoa powder",
+      "Maple syrup",
+      "Vanilla extract",
+      "Almond milk",
+      "Salt"
+    ],
+    "instructions": [
+      "Blend avocados, cocoa powder, maple syrup, vanilla, a pinch of salt, and almond milk until silky.",
+      "Chill for at least 30 minutes before serving."
+    ],
+    "time": { "prep": 10, "cook": 0, "total": 10, "unit": "minutes" },
+    "servings": 4,
+    "tags": ["no-bake", "creamy", "rich", "dairy-free"]
+  }
+]
